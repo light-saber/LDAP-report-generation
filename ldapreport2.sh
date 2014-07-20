@@ -1,4 +1,7 @@
+#!/bin/bash
 
+
+ldapsearch -x "(objectClass=totalOfficeGroup)" | grep cn= | awk -F "=|," '{print $2}' > groups.txt
 
 if [ -s "output.csv" ]; then
         rm output.csv
